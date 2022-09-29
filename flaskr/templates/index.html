@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>モルポッポの本屋さん</title>
+</head>
+<body>
+    <h1>モルポッポの本屋さん</h1>
+    <h2>本はこちらから</h2>
+    {% if books == [] %}
+        <p>現在本はありません。</p>
+    {% else %}
+        <table border="1">
+            <tr>
+                <th>たイトル</th>
+                <th>金額</th>
+                <th>入荷日</th>
+            </tr>
+            {% for book in books %} 
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ book.arrival_day }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    <a href="{{ url_for('form') }}">編集</a>
+</body>
+</html>
